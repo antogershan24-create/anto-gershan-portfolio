@@ -1,43 +1,18 @@
-# Anto Gershan // Security Dossier
+# Anto Gershan Portfolio
 
-A distinctive cybersecurity portfolio designed for GitHub Pages.
+Cybersecurity Analyst in Training portfolio.
 
-## Design direction
-This version intentionally avoids the common "neon hacker template" look. It uses a security dossier / operations-console visual language:
-- fixed evidence rail
-- asymmetric typography
-- targeting/radar visual system
-- field dossier panels
-- project forensics board
-- credential vault
-- responsive mobile layout
-- subtle cyan/green security signals
+## Deploy with GitHub Pages
+1. Upload all files in this folder to your public GitHub repository.
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select **main** and **/ (root)**, then Save.
+5. GitHub will provide the live Pages URL.
 
-## Included evidence
-12 credential/badge items are included:
-- Centri Introduction to Penetration Testing
-- Cisco Introduction to Cybersecurity
-- Cisco Ethical Hacker
-- Cisco Packet Tracer
-- AWS Academy Cloud Foundations
-- MongoDB AI & Innovation
-- MongoDB AI Agents
-- MongoDB Vector Search
-- MongoDB RAG Apps
-- MongoDB Basics for Students
-- Coursera Getting Started with Microsoft Word
-- ICT Force 24-badge collection
+## Personal details
+- Chennai, India
+- Email: antogershan24@gmail.com
+- GitHub: https://github.com/antogershan24-create
+- LinkedIn: https://www.linkedin.com/in/anto-gershan-921530381
 
-## GitHub Pages
-Upload the contents of this folder to:
-`antogershan24-create/anto-gershan-portfolio`
-
-The repository root must contain `index.html`, `style.css`, `script.js`, `README.md`, and the `assets` folder.
-
-Keep GitHub Pages on:
-Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
-
-## Contact
-Email: antogershan24@gmail.com
-LinkedIn: https://www.linkedin.com/in/anto-gershan-921530381
-GitHub: https://github.com/antogershan24-create
+Phone is intentionally not displayed publicly.

@@ -1,190 +1,1483 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Anto Gershan | Cybersecurity Analyst in Training">
-<meta name="theme-color" content="#05070a">
-<title>ANTO GERSHAN // SECURITY DOSSIER</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="scanline"></div>
-<div class="ambient a1"></div><div class="ambient a2"></div>
+<!-- =========================================================
+     CYBERSECURITY CREDENTIAL VAULT
+     COMPLETE HTML + CSS + JAVASCRIPT
+========================================================= -->
 
-<header class="rail">
-  <a href="#home" class="monogram">AG<span>/</span></a>
-  <nav>
-    <a href="#home" class="active"><b>00</b>INDEX</a>
-    <a href="#about"><b>01</b>PROFILE</a>
-    <a href="#skills"><b>02</b>ARSENAL</a>
-    <a href="#projects"><b>03</b>BUILDS</a>
-    <a href="#experience"><b>04</b>FIELD</a>
-    <a href="#credentials"><b>05</b>VAULT</a>
-    <a href="#contact"><b>06</b>CONNECT</a>
-  </nav>
-  <div class="rail-bottom"><span class="status-led"></span><small>SECURE<br>SESSION</small></div>
-</header>
+<style>
 
-<div class="page">
-<header class="mobile-head">
-  <a href="#home" class="monogram">AG<span>/</span></a>
-  <a href="#contact" class="mobile-contact">OPEN TO INTERNSHIPS ↗</a>
-</header>
+/* =========================================================
+   CREDENTIAL VAULT
+========================================================= */
 
-<main>
-<section id="home" class="hero">
-  <div class="hero-top">
-    <div class="system-line"><span>SECURITY DOSSIER</span><i>ANT0 / 2026</i><b>ONLINE</b></div>
-    <div class="hero-index">00</div>
+.credentials-section {
+  position: relative;
+  padding: 110px 0;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.credentials-section .section-head {
+  margin-bottom: 42px;
+}
+
+.credentials-section .section-head h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.credentials-section .section-head h2 span {
+  opacity: 0.45;
+}
+
+.credentials-section .section-head p {
+  max-width: 650px;
+  margin-top: 18px;
+  opacity: 0.65;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FILTER BAR
+========================================================= */
+
+.credential-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 38px;
+}
+
+.credential-filter {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.025);
+  color: inherit;
+
+  padding: 11px 17px;
+
+  border-radius: 6px;
+
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.credential-filter:hover {
+  border-color: rgba(0,255,200,0.45);
+  transform: translateY(-2px);
+}
+
+.credential-filter.active {
+  background: rgba(0,255,200,0.10);
+  border-color: rgba(0,255,200,0.55);
+  color: #00ffc8;
+}
+
+
+/* =========================================================
+   CREDENTIAL GRID
+========================================================= */
+
+.credential-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   CREDENTIAL CARD
+========================================================= */
+
+.credential-card {
+  position: relative;
+
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px;
+
+  border: 1px solid rgba(255,255,255,0.09);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.045),
+      rgba(255,255,255,0.015)
+    );
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* subtle technical corner */
+
+.credential-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 70px;
+  height: 70px;
+
+  border-top: 1px solid rgba(0,255,200,0.25);
+  border-right: 1px solid rgba(0,255,200,0.25);
+
+  pointer-events: none;
+}
+
+
+/* bottom signal line */
+
+.credential-card::after {
+  content: "";
+
+  position: absolute;
+
+  left: 28px;
+  bottom: 0;
+
+  width: 45px;
+  height: 2px;
+
+  background: #00ffc8;
+
+  opacity: 0.65;
+
+  transition:
+    width 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+.credential-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(0,255,200,0.32);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0,255,200,0.055),
+      rgba(255,255,255,0.018)
+    );
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.25);
+}
+
+.credential-card:hover::after {
+  width: 90px;
+  opacity: 1;
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.credential-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+
+/* category */
+
+.credential-category {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 27px;
+
+  padding: 6px 9px;
+
+  border: 1px solid rgba(0,255,200,0.18);
+
+  border-radius: 4px;
+
+  background: rgba(0,255,200,0.045);
+
+  color: #00ffc8;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* year */
+
+.credential-year {
+  font-size: 0.7rem;
+
+  opacity: 0.45;
+
+  letter-spacing: 0.1em;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.credential-card h3 {
+  margin: 0 0 11px;
+
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+
+  line-height: 1.25;
+
+  letter-spacing: -0.02em;
+}
+
+.credential-card strong {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 0.82rem;
+
+  color: #00ffc8;
+
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+.credential-card p {
+  margin: 0;
+
+  max-width: 560px;
+
+  font-size: 0.86rem;
+
+  line-height: 1.7;
+
+  opacity: 0.58;
+}
+
+
+/* =========================================================
+   TAGS
+========================================================= */
+
+.credential-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 20px;
+}
+
+.credential-tags span {
+  padding: 6px 9px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 4px;
+
+  background: rgba(255,255,255,0.025);
+
+  font-size: 0.63rem;
+
+  opacity: 0.62;
+
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   CERTIFICATE BUTTON
+========================================================= */
+
+.credential-card > a {
+  display: inline-flex;
+
+  align-items: center;
+
+  width: fit-content;
+
+  margin-top: auto;
+  padding-top: 25px;
+
+  color: #00ffc8;
+
+  text-decoration: none;
+
+  font-size: 0.69rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.credential-card > a:hover {
+  opacity: 0.7;
+
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+  border-color: rgba(0,255,200,0.16);
+}
+
+.experience-card .credential-category {
+  color: #8affdf;
+
+  border-color: rgba(0,255,200,0.25);
+}
+
+
+/* =========================================================
+   HIDDEN FILTER STATE
+========================================================= */
+
+.credential-card.is-hidden {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 850px) {
+
+  .credential-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .credentials-section {
+    padding: 80px 0;
+  }
+
+  .credential-filters {
+    gap: 7px;
+  }
+
+  .credential-filter {
+    padding: 9px 12px;
+
+    font-size: 0.62rem;
+  }
+
+  .credential-card {
+    min-height: 285px;
+
+    padding: 22px;
+  }
+
+  .credential-card-top {
+    margin-bottom: 20px;
+  }
+
+  .credential-card h3 {
+    font-size: 1.12rem;
+  }
+
+  .credential-card p {
+    font-size: 0.82rem;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 390px) {
+
+  .credential-filters {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .credential-filter {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .credential-card,
+  .credential-filter,
+  .credential-card > a {
+    transition: none;
+  }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     CREDENTIAL VAULT HTML
+========================================================= -->
+
+<section
+  id="credentials"
+  class="section credentials-section"
+>
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <div class="section-label">
+    05 // CREDENTIAL VAULT
   </div>
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p class="micro">CYBERSECURITY ANALYST <span>IN TRAINING</span></p>
-      <h1>BUILD<br><em>BREAK</em><br>DEFEND<span>.</span></h1>
-      <div class="signal"><span></span><strong>OPEN TO CYBERSECURITY INTERNSHIPS</strong></div>
-      <p class="intro">Computer Science student specializing in Cyber Security. I build practical systems, investigate how technology fails and turn hands-on learning into security-minded software.</p>
-      <div class="hero-links">
-        <a class="primary" href="#projects">ENTER PROJECT LAB <span>↘</span></a>
-        <a href="https://www.linkedin.com/in/anto-gershan-921530381" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-        <a href="https://github.com/antogershan24-create" target="_blank" rel="noreferrer">GITHUB ↗</a>
+
+
+  <div class="section-head">
+
+    <h2>
+      Credentials <span>&amp; Learning</span>
+    </h2>
+
+    <p>
+      A curated record of cybersecurity, cloud, AI and professional learning.
+    </p>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       FILTERS
+  ======================================================== -->
+
+  <div
+    class="credential-filters"
+    role="tablist"
+    aria-label="Credential categories"
+  >
+
+    <button
+      type="button"
+      class="credential-filter active"
+      data-filter="all"
+    >
+      ALL
+    </button>
+
+
+    <button
+      type="button"
+      class="credential-filter"
+      data-filter="cyber"
+    >
+      CYBERSECURITY
+    </button>
+
+
+    <button
+      type="button"
+      class="credential-filter"
+      data-filter="cloud"
+    >
+      CLOUD
+    </button>
+
+
+    <button
+      type="button"
+      class="credential-filter"
+      data-filter="ai"
+    >
+      AI &amp; DATA
+    </button>
+
+
+    <button
+      type="button"
+      class="credential-filter"
+      data-filter="professional"
+    >
+      PROFESSIONAL
+    </button>
+
+  </div>
+
+
+
+  <!-- =======================================================
+       CREDENTIAL GRID
+  ======================================================== -->
+
+  <div class="credential-grid">
+
+
+
+    <!-- =====================================================
+         01
+         PENETRATION TESTING
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="cyber"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          CYBERSECURITY
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="target-ring ring-a"></div><div class="target-ring ring-b"></div>
-      <div class="crosshair xh"></div><div class="crosshair xv"></div>
-      <div class="portrait">
-        <img src="assets/profile.jpeg" alt="Professional portrait of Anto Gershan">
-        <div class="portrait-overlay"></div>
-        <div class="portrait-meta"><span>SUBJECT / AG-01</span><span>CHENNAI / IN</span></div>
-      </div>
-      <div class="floating-note n1"><small>PRIMARY VECTOR</small><b>SECURITY</b><span>PEN-TEST / SOC / APPSEC</span></div>
-      <div class="floating-note n2"><small>BUILD STACK</small><b>PYTHON + FLASK</b><span>ML / WEB / DATA</span></div>
-      <div class="coordinate">13.0827° N<br>80.2707° E</div>
-    </div>
-  </div>
-  <div class="hero-bottom">
-    <div><span>EDUCATION</span><b>SRMIST / B.Sc. CS</b></div>
-    <div><span>SPECIALIZATION</span><b>CYBER SECURITY</b></div>
-    <div><span>GRADUATION</span><b>2028</b></div>
-    <div><span>BASE</span><b>CHENNAI, INDIA</b></div>
-  </div>
-</section>
 
-<section id="about" class="module">
-  <div class="module-head"><span>01 / PROFILE</span><h2>THE OPERATOR<br><em>BEHIND THE SCREEN.</em></h2></div>
-  <div class="dossier">
-    <div class="dossier-number">AG<br><small>PROFILE<br>FILE</small></div>
-    <div class="dossier-copy">
-      <p class="large">I learn security by getting close to the system: understanding the architecture, testing the assumptions and building something better.</p>
-      <p>My current interests include penetration testing, secure development, Linux-based security labs, networking and AI-assisted security workflows. I enjoy practical projects because they force theory to survive contact with reality.</p>
-      <p>I’m looking for an internship where I can contribute as a learner, work with real systems and develop toward a professional security analyst role.</p>
-    </div>
-    <div class="console">
-      <div class="console-head"><span>identity.log</span><b>READ_ONLY</b></div>
-      <div class="console-body">
-        <p><i>$</i> whoami</p><strong>anto-gershan</strong>
-        <p><i>$</i> mission</p><strong>learn / test / defend</strong>
-        <p><i>$</i> status</p><strong class="green">OPEN_TO_INTERNSHIPS</strong>
-        <p><i>$</i> next_target</p><strong>REAL_WORLD_SECURITY</strong>
-        <span class="cursor">_</span>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="skills" class="module">
-  <div class="module-head"><span>02 / ARSENAL</span><h2>CAPABILITY<br><em>MAP.</em></h2></div>
-  <div class="arsenal">
-    <div class="arsenal-core"><div class="radar"><span></span><i></i><b></b></div><small>ACTIVE DOMAIN</small><strong>CYBER<br>SECURITY</strong><p>Practical learning across offensive security, systems, networks and secure application development.</p></div>
-    <div class="arsenal-list">
-      <div class="skill-row"><span>01</span><b>Penetration Testing</b><em>BEGINNER</em></div>
-      <div class="skill-row"><span>02</span><b>Kali Linux</b><em>INTERMEDIATE</em></div>
-      <div class="skill-row"><span>03</span><b>Linux</b><em>INTERMEDIATE</em></div>
-      <div class="skill-row"><span>04</span><b>Networking</b><em>INTERMEDIATE</em></div>
-      <div class="skill-row"><span>05</span><b>Wireshark</b><em>BEGINNER</em></div>
-      <div class="skill-row"><span>06</span><b>Python / Flask</b><em>INTERMEDIATE</em></div>
-      <div class="skill-row"><span>07</span><b>SQL / HTML / CSS</b><em>INTERMEDIATE</em></div>
-      <div class="skill-row"><span>08</span><b>Java / C / JavaScript</b><em>BEGINNER</em></div>
-      <div class="skill-row"><span>09</span><b>React / Node.js / Flutter</b><em>BEGINNER</em></div>
-      <div class="skill-row"><span>10</span><b>Git / GitHub</b><em>INTERMEDIATE</em></div>
-      <div class="skill-row"><span>11</span><b>Machine Learning</b><em>BEGINNER</em></div>
-      <div class="skill-row"><span>12</span><b>Problem Solving</b><em>INTERMEDIATE</em></div>
-    </div>
-  </div>
-</section>
+      <h3>
+        Introduction to Penetration Testing
+      </h3>
 
-<section id="projects" class="module">
-  <div class="module-head"><span>03 / BUILDS</span><h2>PROJECT<br><em>FORENSICS.</em></h2></div>
-  <div class="build-board">
-    <article class="build main-build">
-      <div class="build-stamp">FLAGSHIP / 01</div>
-      <div class="build-number">01</div>
-      <div class="build-info">
-        <span>ML-BASED MALWARE ANALYSIS</span><h3>AI-Based Malware<br>Detection System</h3>
-        <p>A Flask-based malware-analysis prototype that accepts file uploads, extracts 20 statistical and structural features, scales the feature vector, and uses a trained Random Forest model to classify files as clean or potentially malicious. Results include prediction probability, risk scoring, SHA-256 hashing and scan-history storage.</p>
-        <div class="project-actions">   <a class="primary-lite" href="#malware-case-study">VIEW CASE STUDY ↘</a> </div>
+
+      <strong>
+        Centri
+      </strong>
+
+
+      <p>
+        Ethical hacking, penetration testing goals,
+        assessment types and security testing fundamentals.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Pen Testing
+        </span>
+
+        <span>
+          Ethical Hacking
+        </span>
+
       </div>
-      <div class="build-diagram"><div class="node center">FILE</div><div class="node nA">FEATURE<br>EXTRACT</div><div class="node nB">MODEL</div><div class="node nC">RISK<br>SCORE</div><div class="line l1"></div><div class="line l2"></div><div class="line l3"></div></div>
+
+
+      <a
+        href="assets/certs/introduction-to-penetration-testing.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
     </article>
-    <article class="build"><div class="build-number">02</div><span>HEALTHCARE PLATFORM</span><h3>Medivault</h3><p>Digital healthcare platform concept for medical records, appointments, prescriptions and health analytics.</p><div class="chips"><i>WEB</i><i>HEALTHCARE</i></div><a href="https://github.com/antogershan24-create" target="_blank" rel="noreferrer">GITHUB PROFILE ↗</a></article>
-    <article class="build"><div class="build-number">03</div><span>AI / APP BUILD</span><h3>MessAI</h3><p>Flutter/Dart application project exploring practical app development and AI-assisted workflows.</p><div class="chips"><i>FLUTTER</i><i>DART</i><i>AI</i></div><a href="https://github.com/antogershan24-create/messai" target="_blank" rel="noreferrer">VIEW MESSAI ON GITHUB ↗</a></article>
-    <article class="build"><div class="build-number">04</div><span>AUTOMATION / WEB</span><h3>Lazzy Angerson</h3><p>React frontend with a Node.js/Express backend for an automated media-editing workflow.</p><div class="chips"><i>REACT</i><i>NODE.JS</i><i>EXPRESS</i></div><a href="https://github.com/antogershan24-create/messai" target="_blank" rel="noreferrer">VIEW MESSAI ON GITHUB ↗</a></article>
+
+
+
+    <!-- =====================================================
+         02
+         INTRODUCTION TO CYBERSECURITY
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="cyber"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          CYBERSECURITY
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Introduction to Cybersecurity
+      </h3>
+
+
+      <strong>
+        Cisco Networking Academy
+      </strong>
+
+
+      <p>
+        Core cybersecurity concepts, threats, security
+        principles and cyber awareness.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Security
+        </span>
+
+        <span>
+          Fundamentals
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/introduction-to-cybersecurity.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         03
+         ETHICAL HACKER
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="cyber"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          CYBERSECURITY
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Ethical Hacker
+      </h3>
+
+
+      <strong>
+        Cisco Networking Academy
+      </strong>
+
+
+      <p>
+        Ethical hacking concepts, attack techniques,
+        vulnerabilities and security testing.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Ethical Hacking
+        </span>
+
+        <span>
+          Security Testing
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/ethical-hacker.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         04
+         PACKET TRACER
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="cyber"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          NETWORKING
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Getting Started with Cisco Packet Tracer
+      </h3>
+
+
+      <strong>
+        Cisco Networking Academy
+      </strong>
+
+
+      <p>
+        Network simulation, device configuration and
+        practical networking fundamentals.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Networking
+        </span>
+
+        <span>
+          Packet Tracer
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/cisco-packet-tracer.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         05
+         AWS
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="cloud"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          CLOUD
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Cloud Foundations
+      </h3>
+
+
+      <strong>
+        AWS Academy
+      </strong>
+
+
+      <p>
+        Cloud computing fundamentals, AWS services,
+        infrastructure concepts and cloud security.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          AWS
+        </span>
+
+        <span>
+          Cloud
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/aws-cloud-foundations.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         06
+         MONGODB BASICS
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="ai"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          AI &amp; DATA
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        MongoDB Basics for Students
+      </h3>
+
+
+      <strong>
+        MongoDB
+      </strong>
+
+
+      <p>
+        Database fundamentals and MongoDB concepts for
+        modern application development.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          MongoDB
+        </span>
+
+        <span>
+          Database
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/mongodb-basics.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         07
+         AI AGENTS
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="ai"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          AI &amp; DATA
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Building AI Agents with MongoDB
+      </h3>
+
+
+      <strong>
+        MongoDB
+      </strong>
+
+
+      <p>
+        AI agent concepts and MongoDB-powered application
+        development.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          AI Agents
+        </span>
+
+        <span>
+          MongoDB
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/mongodb-ai-agents.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         08
+         RAG
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="ai"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          AI &amp; DATA
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Building RAG Apps Using MongoDB
+      </h3>
+
+
+      <strong>
+        MongoDB
+      </strong>
+
+
+      <p>
+        Retrieval-augmented generation and AI application
+        development concepts.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          RAG
+        </span>
+
+        <span>
+          Generative AI
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/mongodb-rag.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         09
+         VECTOR SEARCH
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="ai"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          AI &amp; DATA
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        AI-Powered Search with MongoDB Vector Search
+      </h3>
+
+
+      <strong>
+        MongoDB
+      </strong>
+
+
+      <p>
+        Vector search, semantic retrieval and
+        AI-powered data applications.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Vector Search
+        </span>
+
+        <span>
+          AI
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/mongodb-vector-search.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         10
+         RESILIENT AI
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="ai"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          AI &amp; DATA
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Resilient AI Strategy
+      </h3>
+
+
+      <strong>
+        MongoDB
+      </strong>
+
+
+      <p>
+        AI strategy, data architecture and resilient
+        enterprise AI concepts.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          AI Strategy
+        </span>
+
+        <span>
+          Data
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/mongodb-resilient-ai-strategy.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         11
+         COURSERA
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="professional"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          PROFESSIONAL
+        </span>
+
+        <span class="credential-year">
+          2025
+        </span>
+
+      </div>
+
+
+      <h3>
+        Getting Started with Microsoft Word
+      </h3>
+
+
+      <strong>
+        Coursera
+      </strong>
+
+
+      <p>
+        Practical Microsoft Word document creation and
+        productivity skills.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Microsoft Word
+        </span>
+
+        <span>
+          Productivity
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/coursera-microsoft-word.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATE ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         12
+         ICT FORCE
+    ====================================================== -->
+
+    <article
+      class="credential-card"
+      data-category="professional"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          PROFESSIONAL
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        AI, Data &amp; Career Development Badges
+      </h3>
+
+
+      <strong>
+        ICT Force
+      </strong>
+
+
+      <p>
+        AI, data, Salesforce and professional development
+        learning badges.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          AI
+        </span>
+
+        <span>
+          Career
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/ict-force-badges.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CERTIFICATES ↗
+      </a>
+
+    </article>
+
+
+
+    <!-- =====================================================
+         13
+         DLK INTERNSHIP
+    ====================================================== -->
+
+    <article
+      class="credential-card experience-card"
+      data-category="professional"
+    >
+
+      <div class="credential-card-top">
+
+        <span class="credential-category">
+          EXPERIENCE
+        </span>
+
+        <span class="credential-year">
+          2026
+        </span>
+
+      </div>
+
+
+      <h3>
+        Cybersecurity Internship
+      </h3>
+
+
+      <strong>
+        DLK Software Solutions
+      </strong>
+
+
+      <p>
+        Hands-on cybersecurity internship involving Flask,
+        machine learning and AI-based malware detection.
+      </p>
+
+
+      <div class="credential-tags">
+
+        <span>
+          Cybersecurity
+        </span>
+
+        <span>
+          Internship
+        </span>
+
+      </div>
+
+
+      <a
+        href="assets/certs/dlk-cybersecurity-internship.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CREDENTIAL ↗
+      </a>
+
+    </article>
+
+
   </div>
+
 </section>
 
-<section id="malware-case-study" class="module malware-case-study">   <div class="module-head">     <span>03.1 / CASE FILE</span>     <h2>MALWARE<br><em>ANALYSIS.</em></h2>   </div>    <div class="malware-dossier">      <div class="malware-intro">       <div>         <span class="case-label">FLAGSHIP SECURITY PROJECT</span>         <h3>AI-Based Malware Detection System</h3>         <p>           A Flask-based machine-learning application designed to analyse           uploaded files, extract statistical and structural features,           and classify them as clean or potentially malicious.         </p>       </div>        <div class="case-status">         <span>PROJECT STATUS</span>         <strong>WORKING PROTOTYPE</strong>       </div>     </div>      <div class="threat-pipeline">        <div class="pipeline-step">         <small>01</small>         <strong>UPLOAD</strong>         <span>File intake</span>       </div>        <div class="pipeline-arrow">→</div>        <div class="pipeline-step">         <small>02</small>         <strong>VALIDATE</strong>         <span>File checks</span>       </div>        <div class="pipeline-arrow">→</div>        <div class="pipeline-step">         <small>03</small>         <strong>FEATURES</strong>         <span>20 features</span>       </div>        <div class="pipeline-arrow">→</div>        <div class="pipeline-step">         <small>04</small>         <strong>MODEL</strong>         <span>Random Forest</span>       </div>        <div class="pipeline-arrow">→</div>        <div class="pipeline-step">         <small>05</small>         <strong>RESULT</strong>         <span>Prediction + risk</span>       </div>      </div>      <div class="malware-grid">        <div class="case-panel">         <small>01 / DETECTION LAYER</small>         <h4>Feature Extraction</h4>         <p>           The system builds a feature vector from file characteristics           before sending it to the machine-learning pipeline.         </p>          <div class="feature-list">           <span>BYTE STATISTICS</span>           <span>ENTROPY</span>           <span>FILE SIZE</span>           <span>STRUCTURAL FEATURES</span>           <span>SUSPICIOUS PATTERNS</span>           <span>HASH IDENTIFICATION</span>         </div>       </div>        <div class="case-panel">         <small>02 / ML ENGINE</small>         <h4>Random Forest Classification</h4>         <p>           The extracted feature vector is standardised and passed to the           trained Random Forest model for classification.         </p>          <div class="model-box">           <span>INPUT</span>           <strong>20 FEATURES</strong>           <span>↓</span>           <strong>STANDARD SCALER</strong>           <span>↓</span>           <strong>RANDOM FOREST</strong>           <span>↓</span>           <strong>PREDICTION</strong>         </div>       </div>        <div class="case-panel">         <small>03 / SECURITY EVIDENCE</small>         <h4>Scan Intelligence</h4>          <div class="evidence-row">           <span>FILE HASH</span>           <strong>SHA-256</strong>         </div>          <div class="evidence-row">           <span>CONFIDENCE</span>           <strong>MODEL PROBABILITY</strong>         </div>          <div class="evidence-row">           <span>RISK</span>           <strong>RISK SCORE</strong>         </div>          <div class="evidence-row">           <span>HISTORY</span>           <strong>SQLITE RECORD</strong>         </div>       </div>      </div>      <div class="limitations">       <div>         <small>HONEST PROJECT NOTE</small>         <h4>Prototype, not production antivirus.</h4>       </div>        <p>         The system is an academic/internship project demonstrating         machine-learning based malware classification and secure         file-processing concepts. Detection quality depends on the         training data and feature engineering.       </p>     </div>    </div> </section>
-  </div> </section>  <section id="experience" class="module">   <div class="module-head"><span>04 / FIELD</span><h2>REAL-WORLD<br><em>EXPOSURE.</em></h2></div>
-  <div class="field-card">
-    <div class="field-aside"><span>INTERNSHIP / 01</span><strong>05.05.26<br>→<br>19.06.26</strong><small>DLK SOFTWARE<br>SOLUTIONS</small></div>
-    <div class="field-main"><p class="micro">CYBERSECURITY INTERN</p><h3>AI-Based Malware Detection<br>System Using Flask</h3><p>Built and explored a security-focused web workflow combining Python, Flask and machine learning. The project covered feature extraction, classification, secure uploads, authentication, 2FA concepts, encryption/decryption concepts and scan-history presentation.</p><div class="field-points"><span>01 / FEATURE EXTRACTION</span><span>02 / RANDOM FOREST</span><span>03 / SECURE UPLOAD</span><span>04 / 2FA + AUTH</span><span>05 / RISK + CONFIDENCE</span></div></div>
-  </div>
-  <div class="edu"><span>EDUCATION / CURRENT</span><div><strong>SRM Institute of Science and Technology</strong><p>B.Sc. Computer Science • Specialization in Cyber Security • Ramapuram Campus, Chennai</p></div><b>2023 → 2028</b></div>
-</section>
 
-<section id="credentials" class="module">
-  <div class="module-head"><span>05 / VAULT</span><h2>PROOF OF<br><em>LEARNING.</em></h2></div>
-  <div class="vault-intro"><div class="vault-id">VAULT<br><strong>12+</strong></div><p>Original certificate files and badge evidence collected into one recruiter-friendly archive. Open any item to inspect the source document.</p><div class="filters"><button class="active" data-filter="all">ALL</button><button data-filter="security">SECURITY</button><button data-filter="cloud">CLOUD</button><button data-filter="ai">AI / DATA</button><button data-filter="other">OTHER</button></div></div>
-  <div class="vault-grid">
-    <article class="vault-card" data-category="security"><a href="assets/certs/introduction-to-penetration-testing.pdf" target="_blank"><img src="assets/certs/introduction-to-penetration-testing-thumb.jpg" alt=""><div><small>CENTRI / 07 SEP 2026</small><h3>Introduction to Penetration Testing</h3><span>OPEN SOURCE FILE ↗</span></div></a></article>
-    <article class="vault-card" data-category="security"><a href="assets/certs/introduction-to-cybersecurity.pdf" target="_blank"><img src="assets/certs/introduction-to-cybersecurity-thumb.jpg" alt=""><div><small>CISCO / 26 AUG 2026</small><h3>Introduction to Cybersecurity</h3><span>OPEN SOURCE FILE ↗</span></div></a></article>
-    <article class="vault-card" data-category="security"><a href="assets/certs/ethical-hacker.pdf" target="_blank"><img src="assets/certs/ethical-hacker-thumb.jpg" alt=""><div><small>CISCO / 19 AUG 2026</small><h3>Ethical Hacker</h3><span>OPEN SOURCE FILE ↗</span></div></a></article>
-    <article class="vault-card" data-category="security"><a href="assets/certs/cisco-packet-tracer.pdf" target="_blank"><img src="assets/certs/cisco-packet-tracer-thumb.jpg" alt=""><div><small>EDCREATE / CISCO / 14 AUG 2026</small><h3>Getting Started with Cisco Packet Tracer</h3><span>OPEN SOURCE FILE ↗</span></div></a></article>
-    <article class="vault-card" data-category="cloud"><a href="https://www.credly.com/go/tewx5I58" target="_blank" rel="noreferrer"><img src="assets/certs/aws-cloud-foundations-thumb.jpg" alt=""><div><small>AWS ACADEMY / 21 AUG 2026</small><h3>Cloud Foundations Training Badge</h3><span>VERIFY ON CREDLY ↗</span></div></a></article>
-    <article class="vault-card" data-category="ai"><a href="https://www.credly.com/go/PmElNI4y" target="_blank" rel="noreferrer"><img src="assets/certs/mongodb-resilient-ai-strategy-thumb.jpg" alt=""><div><small>MONGODB / 19 JUL 2026</small><h3>AI and Innovation: Resilient AI Strategy</h3><span>VERIFY ON CREDLY ↗</span></div></a></article>
-    <article class="vault-card" data-category="ai"><a href="https://www.credly.com/badges/5108d756-7c67-4704-a77a-c15a077ba231" target="_blank" rel="noreferrer"><img src="assets/certs/mongodb-ai-agents-thumb.jpg" alt=""><div><small>MONGODB / 19 JUL 2026</small><h3>Building AI Agents with MongoDB</h3><span>VERIFY ON CREDLY ↗</span></div></a></article>
-    <article class="vault-card" data-category="ai"><a href="https://www.credly.com/badges/e66ec71e-b3c9-4cf7-a606-89d0283cf3ce" target="_blank" rel="noreferrer"><img src="assets/certs/mongodb-vector-search-thumb.jpg" alt=""><div><small>MONGODB / 19 JUL 2026</small><h3>AI-Powered Search with MongoDB Vector Search</h3><span>VERIFY ON CREDLY ↗</span></div></a></article>
-    <article class="vault-card" data-category="ai"><a href="https://www.credly.com/badges/a9196a38-de98-4154-8369-caa3fe44d106" target="_blank" rel="noreferrer"><img src="assets/certs/mongodb-rag-thumb.jpg" alt=""><div><small>MONGODB / 19 JUL 2026</small><h3>Building RAG Apps Using MongoDB</h3><span>VERIFY ON CREDLY ↗</span></div></a></article>
-    <article class="vault-card" data-category="ai"><a href="https://www.credly.com/badges/a66df76f-8d1c-4874-99bb-22b17b09843f" target="_blank" rel="noreferrer"><img src="assets/certs/mongodb-basics-thumb.jpg" alt=""><div><small>MONGODB / 19 JUL 2026</small><h3>MongoDB Basics for Students</h3><span>VERIFY ON CREDLY ↗</span></div></a></article>
-    <article class="vault-card" data-category="other"><a href="assets/certs/coursera-microsoft-word.pdf" target="_blank"><img src="assets/certs/coursera-microsoft-word-thumb.jpg" alt=""><div><small>COURSERA / 16 DEC 2025</small><h3>Getting Started with Microsoft Word</h3><span>OPEN SOURCE FILE ↗</span></div></a></article>
-    <article class="vault-card" data-category="other"><a href="assets/certs/ict-force-badges.pdf" target="_blank"><img src="assets/certs/ict-force-badges-thumb.jpg" alt=""><div><small>ICT FORCE / BADGE COLLECTION</small><h3>24-Badge Learning Collection</h3><span>OPEN BADGE ARCHIVE ↗</span></div></a></article>
-  </div>
-</section>
 
-<section class="module signals">
-  <div class="module-head"><span>06 / SIGNALS</span><h2>OTHER<br><em>EVIDENCE.</em></h2></div>
-  <div class="signal-list">
-    <div><b>4TH PLACE</b><span>QUANTARA’26 / TEAM LEAD</span><p>Led the team and presented work at an intercollegiate technology competition.</p></div>
-    <div><b>WALK OF FAITH</b><span>VANIK UTSAV’26 / RECOGNITION</span><p>Certificate of Appreciation for participation and teamwork.</p></div>
-    <div><b>CONTINUOUS</b><span>LEARNING / ACTIVE</span><p>Cybersecurity, development, AI and practical security labs.</p></div>
-  </div>
-</section>
+<!-- =========================================================
+     CREDENTIAL FILTER JAVASCRIPT
+========================================================= -->
 
-<section id="contact" class="connect">
-  <div class="connect-no">06</div>
-  <p class="micro">ESTABLISH CONNECTION</p>
-  <h2>LET'S BUILD<br><em>THE NEXT LAYER.</em></h2>
-  <p class="connect-copy">Looking for a cybersecurity internship where I can learn fast, contribute responsibly and work with real systems.</p>
-  <div class="connect-actions"><a class="primary" href="mailto:antogershan24@gmail.com">SEND EMAIL ↗</a><a href="https://www.linkedin.com/in/anto-gershan-921530381" target="_blank" rel="noreferrer">LINKEDIN ↗</a><a href="https://github.com/antogershan24-create" target="_blank" rel="noreferrer">GITHUB ↗</a></div>
-  <div class="connect-meta"><span>CHENNAI, INDIA</span><span>ANTOGERSHAN24@GMAIL.COM</span><span>PHONE / AVAILABLE ON REQUEST</span></div>
-</section>
-</main>
+<script>
 
-<footer><span>ANTO GERSHAN // SECURITY DOSSIER</span><span>© 2026 / BUILT FOR GITHUB PAGES</span></footer>
-</div>
-<script src="script.js"></script>
-</body>
-</html>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const filterButtons =
+    document.querySelectorAll(".credential-filter");
+
+  const credentialCards =
+    document.querySelectorAll(".credential-card");
+
+
+  filterButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+      const selectedFilter =
+        button.getAttribute("data-filter");
+
+
+      /* -----------------------------------------------
+         ACTIVE BUTTON
+      ------------------------------------------------ */
+
+      filterButtons.forEach(function (item) {
+
+        item.classList.remove("active");
+
+      });
+
+      button.classList.add("active");
+
+
+      /* -----------------------------------------------
+         FILTER CARDS
+      ------------------------------------------------ */
+
+      credentialCards.forEach(function (card) {
+
+        const category =
+          card.getAttribute("data-category");
+
+
+        if (
+          selectedFilter === "all" ||
+          category === selectedFilter
+        ) {
+
+          card.classList.remove("is-hidden");
+
+        } else {
+
+          card.classList.add("is-hidden");
+
+        }
+
+      });
+
+    });
+
+  });
+
+});
+
+</script>
